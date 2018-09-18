@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <v-app>
+        <template v-if="loggedIn">
+            <Shell/>
+        </template>
+        <template v-else><Login/></template>
+    </v-app>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Shell from "./components/Shell";
+import Login from "./components/Login"
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    Shell,Login
+  },
+  data() {
+    return {
+        loggedIn:false
+    };
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
 </style>
